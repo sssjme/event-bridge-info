@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="sv">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,83 +9,280 @@
   <title>Nyheter och uppdateringar</title>
   <style>
     :root {
-      --ink: #182235; --muted: #68748a; --line: #e7ebf2;
-      --page: #f4f6fb; --card: #fff; --accent: #5965df;
-      --accent-bg: #eef0ff; --green: #16845b; --green-bg: #e9f7f0;
+      --ink: #182235;
+      --muted: #68748a;
+      --line: #e7ebf2;
+      --page: #f4f6fb;
+      --card: #fff;
+      --accent: #5965df;
+      --accent-bg: #eef0ff;
+      --green: #16845b;
+      --green-bg: #e9f7f0;
     }
-    * { box-sizing: border-box; }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      margin: 0; background: var(--page); color: var(--ink);
+      margin: 0;
+      background: var(--page);
+      color: var(--ink);
       font: 16px/1.6 Inter, ui-sans-serif, system-ui, -apple-system,
-            BlinkMacSystemFont, "Segoe UI", sans-serif;
+        BlinkMacSystemFont, "Segoe UI", sans-serif;
     }
+
     .hero {
-      color: #fff; padding: 56px 20px 78px;
+      color: #fff;
+      padding: 56px 20px 78px;
       background: radial-gradient(circle at 85% 15%, #6876c955, transparent 27rem),
-                  linear-gradient(130deg, #111827, #222e52 70%, #343f78);
+        linear-gradient(130deg, #111827, #222e52 70%, #343f78);
     }
-    .wrap { width: min(850px, calc(100% - 36px)); margin: 0 auto; }
+
+    .wrap {
+      width: min(850px, calc(100% - 36px));
+      margin: 0 auto;
+    }
+
     .eyebrow {
-      display: inline-flex; align-items: center; gap: 9px;
-      color: #d9defe; font-size: .76rem; font-weight: 800;
-      letter-spacing: .13em; text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      color: #d9defe;
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
     }
-    .dot { width: 8px; height: 8px; border-radius: 50%; background: #aab4ff; }
-    h1 { margin: 16px 0 9px; font-size: clamp(2.3rem, 7vw, 3.7rem); line-height: 1.08; letter-spacing: -.05em; }
-    .intro { max-width: 580px; margin: 0; color: #dce2f4; font-size: 1.04rem; }
-    main { margin-top: -36px; padding-bottom: 52px; }
+
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #aab4ff;
+    }
+
+    h1 {
+      margin: 16px 0 9px;
+      font-size: clamp(2.3rem, 7vw, 3.7rem);
+      line-height: 1.08;
+      letter-spacing: -.05em;
+    }
+
+    .intro {
+      max-width: 580px;
+      margin: 0;
+      color: #dce2f4;
+      font-size: 1.04rem;
+    }
+
+    main {
+      margin-top: -36px;
+      padding-bottom: 52px;
+    }
+
     .latest {
-      padding: 26px; background: var(--card); border: 1px solid #ffffff;
-      border-radius: 22px; box-shadow: 0 18px 48px #17213a18;
+      padding: 26px;
+      background: var(--card);
+      border: 1px solid #ffffff;
+      border-radius: 22px;
+      box-shadow: 0 18px 48px #17213a18;
     }
-    .topline { display: flex; justify-content: space-between; align-items: center; gap: 12px; flex-wrap: wrap; }
-    .overline { color: var(--muted); font-size: .76rem; font-weight: 800; letter-spacing: .11em; text-transform: uppercase; }
+
+    .topline {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .overline {
+      color: var(--muted);
+      font-size: .76rem;
+      font-weight: 800;
+      letter-spacing: .11em;
+      text-transform: uppercase;
+    }
+
     .badge {
-      display: inline-flex; align-items: center; gap: 7px; padding: 6px 11px;
-      border-radius: 999px; color: var(--green); background: var(--green-bg);
-      font-size: .78rem; font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 11px;
+      border-radius: 999px;
+      color: var(--green);
+      background: var(--green-bg);
+      font-size: .78rem;
+      font-weight: 800;
     }
-    .badge:before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: currentColor; }
-    .versionline { display: flex; align-items: baseline; flex-wrap: wrap; gap: 12px; margin: 10px 0 2px; }
-    h2 { margin: 0; font-size: 1.8rem; letter-spacing: -.04em; }
-    .date { color: var(--muted); font-size: .9rem; }
-    .summary { color: var(--muted); margin: 9px 0 20px; }
-    .features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
-    .feature { display: flex; gap: 12px; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: #fcfdff; }
+
+    .badge:before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .versionline {
+      display: flex;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin: 10px 0 2px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: -.04em;
+    }
+
+    .date {
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .summary {
+      color: var(--muted);
+      margin: 9px 0 20px;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .feature {
+      display: flex;
+      gap: 12px;
+      padding: 14px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fcfdff;
+    }
+
     .feature-icon {
-      flex: 0 0 35px; height: 35px; display: grid; place-items: center;
-      border-radius: 10px; color: var(--accent); background: var(--accent-bg); font-weight: 900;
+      flex: 0 0 35px;
+      height: 35px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      color: var(--accent);
+      background: var(--accent-bg);
+      font-weight: 900;
     }
-    .feature strong { display: block; font-size: .93rem; }
-    .feature p { margin: 2px 0 0; color: var(--muted); font-size: .85rem; }
-    .section-title { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; margin: 35px 2px 14px; }
-    .section-title h2 { font-size: 1.25rem; }
-    .section-title p { margin: 0; color: var(--muted); font-size: .85rem; }
-    .history { display: grid; gap: 12px; }
+
+    .feature strong {
+      display: block;
+      font-size: .93rem;
+    }
+
+    .feature p {
+      margin: 2px 0 0;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .section-title {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 12px;
+      margin: 35px 2px 14px;
+    }
+
+    .section-title h2 {
+      font-size: 1.25rem;
+    }
+
+    .section-title p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .85rem;
+    }
+
+    .history {
+      display: grid;
+      gap: 12px;
+    }
+
     .release {
-      display: grid; grid-template-columns: 130px 1fr; gap: 20px;
-      padding: 20px 22px; background: var(--card); border: 1px solid var(--line); border-radius: 16px;
+      display: grid;
+      grid-template-columns: 130px 1fr;
+      gap: 20px;
+      padding: 20px 22px;
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 16px;
     }
-    .release-version { font-weight: 850; }
-    .release-date { color: var(--muted); font-size: .83rem; }
-    .release h3 { margin: 0 0 6px; font-size: 1rem; }
-    .release ul { margin: 0; padding-left: 19px; color: var(--muted); font-size: .9rem; }
-    footer { padding: 0 0 32px; color: var(--muted); text-align: center; font-size: .82rem; }
+
+    .release-version {
+      font-weight: 850;
+    }
+
+    .release-date {
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    .release h3 {
+      margin: 0 0 6px;
+      font-size: 1rem;
+    }
+
+    .release ul {
+      margin: 0;
+      padding-left: 19px;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    footer {
+      padding: 0 0 32px;
+      color: var(--muted);
+      text-align: center;
+      font-size: .82rem;
+    }
+
     @media (max-width: 600px) {
-      .hero { padding: 43px 18px 68px; }
-      .latest { padding: 20px; border-radius: 18px; }
-      .features { grid-template-columns: 1fr; }
-      .release { grid-template-columns: 1fr; gap: 7px; padding: 18px; }
-      .section-title { align-items: flex-start; flex-direction: column; gap: 2px; }
+      .hero {
+        padding: 43px 18px 68px;
+      }
+
+      .latest {
+        padding: 20px;
+        border-radius: 18px;
+      }
+
+      .features {
+        grid-template-columns: 1fr;
+      }
+
+      .release {
+        grid-template-columns: 1fr;
+        gap: 7px;
+        padding: 18px;
+      }
+
+      .section-title {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 2px;
+      }
     }
   </style>
 </head>
+
 <body>
   <header class="hero">
     <div class="wrap">
       <div class="eyebrow"><span class="dot"></span> Appuppdateringar</div>
       <h1>Det här är nytt</h1>
-      <p class="intro">Här hittar du de senaste nyheterna, förbättringarna och buggfixarna. Jag fyller på sidan när appen får nya uppdateringar.</p>
+      <p class="intro">Här hittar du de senaste nyheterna, förbättringarna och buggfixarna. Jag fyller på sidan när
+        appen får nya uppdateringar.</p>
     </div>
   </header>
 
@@ -104,48 +302,33 @@
       <div class="features">
         <article class="feature">
           <span class="feature-icon">✦</span>
-          <div><strong>Ny funktion</strong><p> 
-            Ny funktion för notifikations signal.<br>
-            Du kan nu aktivera / deaktivera notifikations signal.<br>
-            Notifikations signalen är automatiskt avslagen under 21.00 - 06.00.<br>
-            Funktionen finns under Inställningar.</p>
-          </div>
-          <div><strong>Ny funktion</strong><p> 
-            Ny funktion för kartan.<br>
-            Du kan nu aktivera streaming.<br>
-            Samtliga fartyg kommer visas samt dess possition.<br>
-            Funktionen finns som en play knapp på kartan.</p>
-          </div>
-            <div><strong>Ny funktion</strong><p> 
-            Ny funktion för kartan.<br>
-            Du kan nu aktivera streaming.<br>
-            Samtliga fartyg kommer visas samt dess possition.<br>
-            Funktionen finns som en play knapp på kartan.</p>
-          </div>
-            <div><strong>Ny funktion</strong><p> 
-            Ny funktion för kartan.<br>
-            Du kan nu aktivera streaming.<br>
-            Samtliga fartyg kommer visas samt dess possition.<br>
-            Funktionen finns som en play knapp på kartan.</p>
-          </div>
-           <div><strong>Ny funktion</strong><p> 
-            Ny funktion för kartan.<br>
-            Du kan nu aktivera streaming.<br>
-            Samtliga fartyg kommer visas samt dess possition.<br>
-            Funktionen finns som en play knapp på kartan.</p>
+          <div>
+            <strong>Ny funktion – Notifikationer</strong>
+            <p>
+              Ny funktion för notifikationssignal.<br>
+              Du kan nu aktivera / deaktivera notifikationssignal.<br>
+              Signalen är automatiskt avslagen 21.00–06.00.<br>
+              Funktionen finns under Inställningar.
+            </p>
           </div>
         </article>
         <article class="feature">
           <span class="feature-icon">↗</span>
-          <div><strong>Förbättringar</strong><p>Beskriv något som har blivit enklare, snabbare eller bättre.</p></div>
+          <div><strong>Förbättringar</strong>
+            <p>Beskriv något som har blivit enklare, snabbare eller bättre.</p>
+          </div>
         </article>
         <article class="feature">
           <span class="feature-icon">✓</span>
-          <div><strong>Felkorrigeringar</strong><p>Beskriv kort vilka problem som har rättats till.</p></div>
+          <div><strong>Felkorrigeringar</strong>
+            <p>Beskriv kort vilka problem som har rättats till.</p>
+          </div>
         </article>
         <article class="feature">
           <span class="feature-icon">◎</span>
-          <div><strong>Övrigt</strong><p>Lägg till annan viktig information om uppdateringen.</p></div>
+          <div><strong>Övrigt</strong>
+            <p>Lägg till annan viktig information om uppdateringen.</p>
+          </div>
         </article>
       </div>
     </section>
@@ -158,16 +341,35 @@
     <!-- KOPIERA ETT release-BLOCK FÖR VARJE TIDIGARE VERSION -->
     <section class="history" aria-label="Tidigare versioner">
       <article class="release">
-        <div><div class="release-version">Version X.Y.Z</div><div class="release-date">ÅÅÅÅ-MM-DD</div></div>
-        <div><h3>Förbättringar och korrigeringar</h3><ul><li>Beskriv en ändring i den här versionen.</li><li>Beskriv ytterligare en ändring.</li></ul></div>
+        <div>
+          <div class="release-version">Version X.Y.Z</div>
+          <div class="release-date">ÅÅÅÅ-MM-DD</div>
+        </div>
+        <div>
+          <h3>Förbättringar och korrigeringar</h3>
+          <ul>
+            <li>Beskriv en ändring i den här versionen.</li>
+            <li>Beskriv ytterligare en ändring.</li>
+          </ul>
+        </div>
       </article>
       <article class="release">
-        <div><div class="release-version">Version X.Y.Z</div><div class="release-date">ÅÅÅÅ-MM-DD</div></div>
-        <div><h3>Första versionen</h3><ul><li>Appen lanserades.</li><li>Grundläggande funktioner blev tillgängliga.</li></ul></div>
+        <div>
+          <div class="release-version">Version X.Y.Z</div>
+          <div class="release-date">ÅÅÅÅ-MM-DD</div>
+        </div>
+        <div>
+          <h3>Första versionen</h3>
+          <ul>
+            <li>Appen lanserades.</li>
+            <li>Grundläggande funktioner blev tillgängliga.</li>
+          </ul>
+        </div>
       </article>
     </section>
   </main>
 
   <footer class="wrap">Tack för att du använder appen. <span aria-hidden="true">♥</span></footer>
 </body>
+
 </html>
